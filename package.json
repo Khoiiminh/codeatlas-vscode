@@ -1,0 +1,39 @@
+{
+  "name": "codeatlas-vscode",
+  "displayName": "CodeAtlas",
+  "description": "Architecture graph exploration and source navigation backed by the local CodeAtlas engine.",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Khoiiminh/codeatlas-vscode"
+  },
+  "engines": {
+    "vscode": "^1.140.0",
+    "node": ">=26.13.1"
+  },
+  "categories": [
+    "Visualization",
+    "Programming Languages"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {},
+  "scripts": {
+    "compile": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p webview-ui/tsconfig.json",
+    "lint": "eslint .",
+    "check:imports": "depcruise src webview-ui --config .dependency-cruiser.cjs",
+    "check:architecture": "npm run lint && npm run check:imports"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "22.20.5",
+    "@types/vscode": "1.140.0",
+    "dependency-cruiser": "18.9.0",
+    "eslint": "10.15.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.74.0"
+  }
+}
