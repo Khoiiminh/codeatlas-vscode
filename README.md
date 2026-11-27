@@ -33,11 +33,14 @@ The Node version is pinned in `.node-version`; the minimum VS Code version is `e
 ```sh
 npm ci
 npm run typecheck
+npm run format:check         # Prettier, 4-space indent (npm run format fixes it)
 npm run compile              # emits dist/extension.js
 npm run check:architecture   # ESLint import bans + dependency-cruiser folder rules
 ```
 
-CI (`.github/workflows/ci.yml`) runs the jobs `build` and `architecture`. Mark both as required in branch protection.
+CI (`.github/workflows/ci.yml`) runs the jobs `build` (which also checks formatting) and `architecture`. Mark both as required in branch protection.
+
+Engine contract types come from the pinned artifact in [`vendor/`](vendor/README.md) (`@codeatlas/contracts`, FND-03). They are used only in `src/adapters/engine` and `src/adapters/platform-api`.
 
 ## Decision records
 

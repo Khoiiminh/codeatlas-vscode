@@ -75,6 +75,7 @@ Scaffold moves: `src/commands`, `src/providers` and `src/webview` → `src/prese
   - dependency-cruiser (`.dependency-cruiser.cjs`) enforces the folder matrix on resolved paths. `no-restricted-imports` matches import strings only, so on its own it cannot reliably tell sibling adapters apart.
 
   A deliberately introduced violation must fail CI. Verified on 2026-11-24: injected probes for `vscode` and `node:fs`/`process` in core, domain → application, adapter → adapter, presentation → adapter, importing `extension.ts`, and `webview-ui` → core were all rejected.
+- Amendment (2026-11-25, FND-03): the dependency-cruiser option `exclude` also dropped `node_modules` edges, so `contracts-only-in-engine-adapters` could not fire. It now excludes only `dist` and `coverage`. Probes importing `@codeatlas/contracts` from `src/core` and `src/presentation` are rejected by both ESLint and dependency-cruiser, and `src/adapters/platform-api` is allowed. The pinned artifact is used in `src/adapters/engine/contract-version.ts`. The matrix is unchanged.
 - IDE-01: compatibility rules in `core/domain` with unit tests in `tests/unit`. `EngineClient` is implemented in `adapters/engine`.
 - IDE-02: Webview message types in `src/shared/webview-protocol`. `EditorNavigator` is implemented in `adapters/vscode/navigation`.
 

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "tabWidth": 4,
+  "printWidth": 120,
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": ["*.json", "*.jsonc", "*.yml", "*.yaml", "*.md"],
+      "options": { "tabWidth": 2 }
+    }
+  ]
+}
