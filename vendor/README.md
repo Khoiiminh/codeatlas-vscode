@@ -5,7 +5,7 @@
 | File | `codeatlas-contracts-0.1.0.tgz` |
 | Package | `@codeatlas/contracts` 0.1.0 (contract 0.1.0, protocol 0.1) |
 | Source | `codeatlas-engine`, `packages/contracts` (`npm pack`), from the FND-03 change |
-| SHA-256 | `d37f6a1ce91e42e30d515fbb82106dee904998f64a7568c8069c0655c5b71338` |
+| SHA-256 | `f70f685abeee534f2d111335ba35147b35b7aa23d402a91872a0bc718a654d6c` |
 
 This is the immutable, versioned contract artifact the extension pins (ADR-0009 rule 3). `package.json` depends on it as `file:vendor/codeatlas-contracts-0.1.0.tgz`, and `package-lock.json` records its integrity hash. Only `src/adapters/engine` and `src/adapters/platform-api` may import it (ESLint and dependency-cruiser, ADR-0012 rule 4). Never edit the tarball or copy schema files out of it.
 
