@@ -25,7 +25,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p webview-ui/tsconfig.json",
     "lint": "eslint .",
     "check:imports": "depcruise src webview-ui --config .dependency-cruiser.cjs",
-    "check:architecture": "npm run lint && npm run check:imports"
+    "check:architecture": "npm run lint && npm run check:imports",
+    "format": "prettier --write \"**/*.{ts,mts,cts,tsx,js,mjs,cjs}\"",
+    "format:check": "prettier --check \"**/*.{ts,mts,cts,tsx,js,mjs,cjs}\""
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
@@ -33,7 +35,11 @@
     "@types/vscode": "1.140.0",
     "dependency-cruiser": "18.9.0",
     "eslint": "10.15.0",
+    "prettier": "3.10.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.74.0"
+  },
+  "dependencies": {
+    "@codeatlas/contracts": "file:vendor/codeatlas-contracts-0.1.0.tgz"
   }
 }

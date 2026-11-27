@@ -1,0 +1,16 @@
+# Editor defaults shared by every editor (VS Code needs the EditorConfig extension).
+# TypeScript, JavaScript and Rust use 4 spaces; data and docs files keep 2.
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{json,jsonc,yml,yaml,md}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
