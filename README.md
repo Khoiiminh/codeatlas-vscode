@@ -40,6 +40,8 @@ npm run check:architecture   # ESLint import bans + dependency-cruiser folder ru
 
 CI (`.github/workflows/ci.yml`) runs the jobs `build` (which also checks formatting) and `architecture`. Mark both as required in branch protection.
 
+Branches ([ADR-0013](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0013-branch-promotion-and-rule-ownership.md)): work reaches `development` through pull requests. `main` only moves forward to a commit of `development` (a fast-forward push by a maintainer on the `protect-main` bypass list), so both branches share one history. The `source-branch` check in `.github/workflows/branch-policy.yml` fails any pull request into `main` that does not come from this repository's `development`. Make it required in `protect-main` only. `.github/CODEOWNERS` names the owners of the files that define this repository's rules.
+
 Engine contract types come from the pinned artifact in [`vendor/`](vendor/README.md) (`@codeatlas/contracts`, FND-03). They are used only in `src/adapters/engine` and `src/adapters/platform-api`.
 
 ## Decision records

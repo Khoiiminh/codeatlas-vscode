@@ -1,0 +1,30 @@
+# Code owners for the files that define this repository's rules (ADR-0009).
+#
+# Everything else has no owner, so ordinary changes need no extra review. Once the repository
+# moves to an organization with a second maintainer, replace @Khoiiminh with the core team
+# (for example @codeatlas/core) and turn on "Require review from Code Owners" in both rulesets.
+# Until then GitHub only requests a review; nothing is blocked.
+
+# CI, branch policy and this file
+/.github/                                   @Khoiiminh
+
+# Toolchains and formatting. package.json is also the extension manifest, so owning it means
+# a review for manifest changes too; its scripts define what CI runs.
+/package.json                               @Khoiiminh
+/tsconfig.json                              @Khoiiminh
+/.node-version                              @Khoiiminh
+/.editorconfig                              @Khoiiminh
+/.prettierrc.json                           @Khoiiminh
+/.prettierignore                            @Khoiiminh
+
+# Architecture rules (ADR-0012): lint and import-boundary configuration and checks
+/eslint.config.mjs                          @Khoiiminh
+/.dependency-cruiser.cjs                    @Khoiiminh
+/tests/architecture/                        @Khoiiminh
+
+# Pinned contract artifact (ADR-0009)
+/vendor/                                    @Khoiiminh
+
+# Decisions and architecture documentation
+/docs/adr/                                  @Khoiiminh
+/docs/architecture/                         @Khoiiminh

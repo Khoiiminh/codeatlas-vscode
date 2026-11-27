@@ -1,0 +1,35 @@
+# Branch policy (ADR-0009): only `development` of this repository may be merged into `main`.
+#
+# Add the `source-branch` check to the required status checks of the `protect-main` ruleset
+# only. The job runs only for pull requests into `main`, so requiring it on `development` would
+# leave every pull request there waiting for a check that never starts.
+name: Branch policy
+
+on:
+  pull_request:
+    branches: [main]
+    # `edited` also covers changing an open pull request's base to `main`.
+    types: [opened, reopened, synchronize, edited]
+
+# The job only compares names; it needs no token rights and checks out no code.
+permissions: {}
+
+jobs:
+  source-branch:
+    name: source-branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Only development may be merged into main
+        # Values go through `env`, never straight into the script: branch names can contain
+        # shell characters.
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          THIS_REPO: ${{ github.repository }}
+        run: |
+          if [ "$HEAD_REF" = "development" ] && [ "$HEAD_REPO" = "$THIS_REPO" ]; then
+            echo "OK: $HEAD_REPO:$HEAD_REF -> main"
+          else
+            echo "::error title=Wrong source branch::Pull requests into main must come from development in $THIS_REPO, not $HEAD_REPO:$HEAD_REF. Change the base branch to development."
+            exit 1
+          fi
