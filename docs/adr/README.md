@@ -22,6 +22,7 @@ ADR numbers are global across the three CodeAtlas repositories. Each ADR has one
 | ADR-0012 | [VS Code extension core/adapters/presentation layering](0012-vscode-extension-layering.md) | vscode | Accepted | this repository |
 | ADR-0013 | [Branch promotion and ownership of repository rules](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0013-branch-promotion-and-rule-ownership.md) | cross-repository | Accepted | [`codeatlas-engine`](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0013-branch-promotion-and-rule-ownership.md) |
 | ADR-0014 | [Engine run model (cancellation, progress, threads) and quality targets](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0014-engine-run-model-and-quality-targets.md) | engine | Accepted | [`codeatlas-engine`](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0014-engine-run-model-and-quality-targets.md) |
+| ADR-0015 | [TypeScript semantic analysis: facts, analyzer process and project model](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0015-typescript-semantic-analysis.md) | engine | Accepted | [`codeatlas-engine`](https://github.com/Khoiiminh/codeatlas-engine/blob/development/docs/adr/0015-typescript-semantic-analysis.md) |
 
 ## Writing and changing ADRs
 
